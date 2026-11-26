@@ -31,16 +31,16 @@ video{width:100%;max-height:72dvh;background:#000;display:block}
 <video id="v" src="tutorial.mp4" controls playsinline preload="metadata"></video>
 <div class="bar">السرعة:<button data-r="1">1×</button><button data-r="1.5">1.5×</button><button data-r="2">2×</button></div>
 </section>
-<nav class="ch" aria-label="أسئلة المشروع"><h2>اختر السؤال</h2><div id="list"></div></nav>
+<nav class="ch" aria-label="أسئلة المشروع"><h2>اختر الجزء</h2><div id="list"></div></nav>
 </div>
-<p class="fine">يعرض الفيديو الحل على الكمبيوتر. على الهاتف تختار الإجابة من القائمة بدل كتابتها.</p>
+<p class="fine">يعرض الفيديو الحل على الكمبيوتر، ثم طريقة الحل على الهاتف في آخره: تختار الإجابة بلمسة بدل كتابتها.</p>
 </main>
 <script>
 (function(){
-var Q=["افتح النموذج Form1 من نافذة Solution Explorer","أضف عنوان Label","أضف صندوق نص TextBox","أضف زر Button وغيّر نصه إلى «استعارة»","أضف صندوق صورة PictureBox","غيّر Text للعنوان Label1","غيّر لون النص ForeColor إلى Purple","غيّر حجم الخط Font إلى 18","أظهر التاريخ في Label3 عند التشغيل","أظهر الوقت في Label4 عند التشغيل","تعليمة إنهاء البرنامج في زر (إنهاء)","أضف نموذجاً جديداً (Form2)","أضف وحدة نمطية (Module)","أعلن عن المتغير bookName","خزّن TextBox1 في المتغير bookName","أظهر النموذج Form2","أخفِ النموذج الحالي","أعلن عن الثابت shelves","أكمل تعليمة If ... Then","احفظ التغييرات"];
-var T=[4,30.75,55.25,77.4,109.65,131.85,164.399,188.549,218.899,255.349,283.999,326.749,354.299,381.099,430.4,476.5,501.3,525.4,556,603.8];
+var Q=["افتح النموذج Form1 من نافذة Solution Explorer","أضف عنوان Label","أضف صندوق نص TextBox","أضف زر Button وغيّر نصه إلى «استعارة»","أضف صندوق صورة PictureBox","غيّر Text للعنوان Label1","غيّر لون النص ForeColor إلى Purple","غيّر حجم الخط Font إلى 18","أظهر التاريخ في Label3 عند التشغيل","أظهر الوقت في Label4 عند التشغيل","تعليمة إنهاء البرنامج في زر (إنهاء)","أضف نموذجاً جديداً (Form2)","أضف وحدة نمطية (Module)","أعلن عن المتغير bookName","خزّن TextBox1 في المتغير bookName","أظهر النموذج Form2","أخفِ النموذج الحالي","أعلن عن الثابت shelves","أكمل تعليمة If ... Then","احفظ التغييرات","على الهاتف: قراءة السؤال واختيار الإجابة","على الهاتف: مكان الكود بالمؤشر","على الهاتف: بدون مساعدة"];
+var T=[4,30.75,55.25,77.4,109.65,131.85,164.399,188.549,218.899,255.349,283.999,326.749,354.299,381.099,430.4,476.5,501.3,525.4,556,603.8,621.4,652.95,681.95];
 var v=document.getElementById("v"),list=document.getElementById("list");
-list.innerHTML=Q.map(function(q,i){return '<button data-i="'+i+'"><b>س'+(i+1)+'</b><span>'+q+'</span></button>'}).join("");
+list.innerHTML=Q.map(function(q,i){return '<button data-i="'+i+'"><b>'+(i<20?'س'+(i+1):'هاتف')+'</b><span>'+q+'</span></button>'}).join("");
 list.onclick=function(e){var b=e.target.closest("button");if(!b)return;v.currentTime=T[+b.dataset.i]+0.05;v.play();window.scrollTo({top:0,behavior:"smooth"})};
 var bs=document.querySelectorAll(".bar button");function rate(r){v.playbackRate=r;bs.forEach(function(b){b.classList.toggle("on",+b.dataset.r===r)})}
 bs.forEach(function(b){b.onclick=function(){rate(+b.dataset.r)}});rate(1);
