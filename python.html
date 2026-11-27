@@ -12,7 +12,7 @@ button,input,select{font:inherit;color:inherit}button{cursor:pointer}:focus-visi
 .mini{direction:ltr;width:250px;background:var(--pb);border:2px solid #0E2547;color:var(--pt);font:12px/1.7 var(--mono);text-align:left}.mini b{display:block;background:var(--pp);color:var(--pt);padding:3px 8px;font:400 12px var(--ui);border-bottom:2px solid var(--pacc)}.mini div{padding:8px 10px}.mini .k{color:#CF8E6D}.mini .s{color:#6AAB73}.mini .f{color:#56A8F5}.mini .n{color:#2AACB8}.mini .o{color:#FF9F43;border:1px solid #FF9F43;border-radius:3px;padding:0 2px}
 .tracks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.tracks.one{grid-template-columns:minmax(0,1fr)}
 .demo{background:var(--chrome2);border:1px dashed var(--line);padding:12px 16px}.demo summary{cursor:pointer;font-weight:700;color:var(--navy)}.demo>.fine{margin:10px 0}.demo .track{background:var(--paper)}
-.btn.wait{position:relative;overflow:hidden;opacity:.7;cursor:default}.btn.wait::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:#FFFFFFCC;transform-origin:right;animation:wt var(--w) linear var(--d) forwards}@keyframes wt{from{transform:scaleX(0)}to{transform:scaleX(1)}}.bub.les{max-width:min(520px,94vw)}.bub .okh{color:#14532D;font-size:15px}.bub .lesson{display:grid;gap:2px;background:#fff;border:1px solid #D9B9A4;border-radius:6px;padding:6px 9px;font-weight:600;line-height:1.6;color:#0B2545}.bub .lesson b{color:var(--go);font-size:13px}.bub .lesson.ex{background:#FFF9E6;border-color:#E8C770}.bub .lesson.ex b{color:#8A5A00}.bub .ans{direction:ltr;text-align:left;background:#fff;border:1px solid #D9B9A4;border-radius:6px;padding:5px 9px;font:700 15px/1.5 var(--mono);color:#0B2545;white-space:pre;overflow-x:auto}.bub .tip{font-weight:600;font-size:13px}
+.lbox{flex:none;border-top:3px solid #1E8E3E;background:#EEF8F1;color:#0B2545;padding:6px 12px;display:grid;gap:5px;font:600 14px/1.5 var(--ar);direction:rtl}.lbox.anim{animation:lbin .35s ease-out}@keyframes lbin{from{transform:translateY(100%);opacity:.3}to{transform:none;opacity:1}}.lbox .lstep{font-size:12px;color:#5B6B7F;white-space:nowrap}.lbox .lh{display:flex;align-items:center;gap:8px}.lbox .okh{flex:1;color:#14532D;font-weight:700;font-size:15px}.lbox .btn{padding:4px 12px;font-size:13.5px}.lbox .lesson{display:grid;gap:2px;background:#fff;border:1px solid #CFE3D5;border-radius:6px;padding:5px 9px}.lbox .lesson b{color:var(--go);font-size:12.5px}.lbox .lesson.ex{background:#FFF9E6;border-color:#E8C770}.lbox .lesson.ex b{color:#8A5A00}.lbox.min{padding:4px 10px}@media (max-height:520px){.lbox{font-size:12.5px;line-height:1.45;padding:5px 9px;gap:4px}.lbox .okh{font-size:13px}.lbox .btn{padding:2px 9px;font-size:12px}}.btn.wait{position:relative;overflow:hidden;opacity:.7;cursor:default}.btn.wait::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:#FFFFFFCC;transform-origin:right;animation:wt var(--w) linear var(--d) forwards}@keyframes wt{from{transform:scaleX(0)}to{transform:scaleX(1)}}.bub.les{max-width:min(520px,94vw)}.bub .okh{color:#14532D;font-size:15px}.bub .lesson{display:grid;gap:2px;background:#fff;border:1px solid #D9B9A4;border-radius:6px;padding:6px 9px;font-weight:600;line-height:1.6;color:#0B2545}.bub .lesson b{color:var(--go);font-size:13px}.bub .lesson.ex{background:#FFF9E6;border-color:#E8C770}.bub .lesson.ex b{color:#8A5A00}.bub .opt.sug{font-size:15px;padding:7px 11px;background:#fff;border:2px solid var(--go);box-shadow:0 2px 0 #D9480F55}.bub .opt.sug:active{transform:translateY(1px)}.bub .ans{direction:ltr;text-align:left;background:#fff;border:1px solid #D9B9A4;border-radius:6px;padding:5px 9px;font:700 15px/1.5 var(--mono);color:#0B2545;white-space:pre;overflow-x:auto}.bub .tip{font-weight:600;font-size:13px}
 .track{background:var(--paper);border:1px solid var(--line);padding:22px;display:grid;gap:13px;align-content:start}.track h2{margin:0;font-size:24px}.track p{margin:0;color:var(--soft);line-height:1.75}
 .bar{height:9px;background:#DCE5F0;overflow:hidden}.bar i{display:block;height:100%;background:var(--ok)}
 .rowb{display:flex;flex-wrap:wrap;gap:9px}.btn{border:1px solid var(--steel);background:#fff;color:var(--navy);padding:9px 15px;font-weight:600}.btn.pri{background:var(--go);border-color:var(--go);color:#fff}.btn:hover{filter:brightness(.96)}
@@ -165,6 +165,7 @@ function renderIDE(){var ide=$("#ide"),st=cur();
  if(S.proj){t+='<div class="proj"><div class="ph">Project ▾</div><div class="tree"><button class="root">▾ '+ICON.dfold+' project <small>'+esc(DATA.pydir)+'</small></button>'+TR.files.map(function(f){var si=fileStep(f),dn=si>=0&&stepDone(TR.steps[si],si);return '<button class="fl'+(S.act===f?' on':'')+(dn?' dn':'')+'" data-a="file" data-f="'+f+'" data-g="file:'+f+'">'+ICON.py+' '+f+'</button>'}).join("")+'</div></div>'}
  t+='<div class="edcol"><div class="tabs" id="tabs">'+S.tabs.map(function(f){return '<button class="tab'+(S.act===f?' on':'')+'" data-a="tab" data-f="'+f+'">'+ICON.py+' '+f+' <i data-a="close" data-f="'+f+'">×</i></button>'}).join("")+'</div>';
  t+=S.act?'<div class="ed" id="ed">'+codeHTML(S.act)+'</div>':'<div class="empty">'+(coarse?'اضغط على':'اضغط ضغطتين على')+' ملف من قائمة Project لفتحه</div>';
+ t+=lessonBox();
  if(S.run)t+='<div class="run"><div class="rh"><b>Run</b><span class="tab on">'+ICON.py+' '+esc(S.run.replace(".py",""))+' <i data-a="runx" title="Close">×</i></span></div><pre class="rout" id="rout">'+runHTML(S.run)+'</pre></div>';
  t+='</div>'+(S.menu?menuHTML():'')+'</div><div class="status"><span>project › '+(S.act?esc(S.act):'')+'</span><span class="sp"></span><span>UTF-8</span><span>4 spaces</span><span>Python 3.12</span></div>';
  var keepL=0,keepT=0,ed=$("#ed");if(ed){keepL=ed.scrollLeft;keepT=ed.scrollTop}
@@ -240,22 +241,31 @@ function coachText(t,st){if(!t)return "";
  return "اكتب في الفراغ"+c+":";}
 /* In help mode the bubble teaches: what goes in the blank, then one tap writes it. */
 function coachHTML(t,st){if(!t||!t.k)return '<div>'+esc(coachText(t,st))+'</div>';var it=st.it[t.j];
- return '<div>'+esc(coachText(t,st))+'</div><div class="ans">'+esc(it.a)+'</div><div class="tip">'+(it.t==="fix"?"اضغط على الخطأ ليُصحَّح.":"اضغط على الفراغ ليُكتب.")+'</div>'}
+ return '<div>'+esc(coachText(t,st))+'</div><button class="opt sug" data-a="sug" data-k="'+t.k+'">'+esc(it.a)+'</button><div class="tip">'+(it.t==="fix"?"اضغط التصحيح ليُكتب مكان الخطأ.":"اضغط الإجابة لتُكتب في الكود.")+'</div>'}
 function tEl(t){if(!t)return null;if(t.k)return document.querySelector('[data-k="'+t.k+'"]');return document.querySelector('[data-g="'+t.g+'"]')}
 function shuffle(a,seed){a=a.slice();var s=seed||1;for(var i=a.length-1;i>0;i--){s=(s*9301+49297)%233280;var j=Math.floor(s/233280*(i+1));var x=a[i];a[i]=a[j];a[j]=x}return a}
 function itemOf(k){var p=k.split("-");return TR.steps[+p[0]].it[+p[1]]}
 /* Reading pace: buttons wait until the text could be read; taps wait a moment; a short pause after each answer. */
+/* No-help mode: a short pause only, since the student already read it with help. */
+function quickMs(txt,min,max){return Math.max(min,Math.min(max,400+(txt||"").length*30))}
 function readMs(txt,min,max){return Math.max(min,Math.min(max,1200+(txt||"").length*85))}
-function waitFor(k,ms){if(WAIT.k!==k)WAIT={k:k,until:Date.now()+(FAST?0:ms),total:FAST?0:ms};var left=WAIT.until-Date.now();clearTimeout(WAIT.t);if(left>0)WAIT.t=setTimeout(function(){if(S&&$(".lab"))renderBub()},left+30);return Math.max(0,left)}
+function waitFor(k,ms){if(WAIT.k!==k)WAIT={k:k,until:Date.now()+(FAST?0:ms),total:FAST?0:ms};var left=WAIT.until-Date.now();clearTimeout(WAIT.t);if(left>0)WAIT.t=setTimeout(function(){if(S&&$(".lab"))refresh()},left+30);return Math.max(0,left)}
 function waiting(k){return WAIT.k===k&&Date.now()<WAIT.until}
 function waitBtn(a,label,left){return '<button class="btn pri'+(left?' wait':'')+'" data-a="'+a+'"'+(left?' disabled style="--w:'+WAIT.total+'ms;--d:-'+(WAIT.total-left)+'ms"':'')+'>'+label+'</button>'}
+/* After a question is solved: a box docked under the editor (the code above stays readable). It can be folded to one line. */
+function lessonBox(){var st=cur();if(S.okStep!==S.i||!st.tip)return "";var last=S.i>=TR.steps.length-1,two=S.lstage===1,
+  lt=two?waitFor("ob"+S.i,S.h?readMs(st.ex,2500,8000):quickMs(st.ex,800,2000)):waitFor("oa"+S.i,S.h?readMs(st.tip,2500,8000):quickMs(st.tip,800,2000)),
+  btn=two?waitBtn("next",last?"اعرض النتيجة":"السؤال التالي",lt):waitBtn("lnext","في الاختبار ←",lt),an=S.lanim!==S.i;S.lanim=S.i;
+ var card=two?'<div class="lesson ex"><b>في الاختبار</b><span>'+esc(st.ex)+'</span></div>':'<div class="lesson"><b>الفكرة</b><span>'+esc(st.tip)+'</span></div>';
+ return '<div class="lbox'+(S.lmin?' min':'')+(an?' anim':'')+'" id="lbox"><div class="lh"><span class="okh">✓ '+qLabel(st)+' صح</span><span class="lstep">'+(two?'2 من 2':'1 من 2')+'</span><button class="btn" data-a="lmin">'+(S.lmin?"اعرض":"أخفِ")+'</button>'+btn+'</div>'+(S.lmin?'':card)+'</div>'}
 function lessonHTML(st){return st.tip?'<div class="lesson"><b>الفكرة</b><span>'+esc(st.tip)+'</span></div><div class="lesson ex"><b>في الاختبار</b><span>'+esc(st.ex)+'</span></div>':''}
 function renderBub(){var b=$("#bub"),cv=$("#qcover");if(!b)return;document.querySelectorAll(".g").forEach(function(e){e.classList.remove("g")});REPOS=null;b.style.visibility="";
  if(!S||ANIM){b.hidden=true;cv.hidden=true;return}var st=cur(),t=target();cv.hidden=true;b.className="bub";
  var pz=PAUSE-Date.now();if(pz>0){b.hidden=true;clearTimeout(renderBub.t);renderBub.t=setTimeout(function(){if(S&&$(".lab"))renderBub()},pz+20);return}
- if(S.okStep===S.i){var last=S.i>=TR.steps.length-1,ln=lessonHTML(st),lt=waitFor("o"+S.i,st.tip?(S.h?readMs(st.tip+st.ex,4000,12000):readMs(st.tip+st.ex,2500,7000)):0);
+ if(S.okStep===S.i&&st.tip){b.hidden=true;var lk=S.lastK&&document.querySelector('[data-k="'+S.lastK+'"]');if(lk)lk.scrollIntoView({block:"nearest",inline:"nearest"});return}
+ if(S.okStep===S.i){var last=S.i>=TR.steps.length-1,ln=lessonHTML(st),lt=waitFor("o"+S.i,st.tip?(S.h?readMs(st.tip+st.ex,4000,12000):quickMs(st.tip+st.ex,1200,3000)):0);
   b.className="bub ok"+(ln?" les":"");b.innerHTML='<div class="okh">'+(last?"أحسنت! أنهيت المشروع وحفظت ملفاتك.":st.k==="q"?"✓ أحسنت! "+qLabel(st)+" صح.":"أحسنت!")+'</div>'+ln+'<div class="brow">'+waitBtn("next",last?"اعرض النتيجة":"السؤال التالي",lt)+'</div>';b.hidden=false;placeOk(b);return}
- if(S.intro!==S.i){var il=waitFor("i"+S.i,readMs(st.q,2500,8000));cv.hidden=false;b.className="bub intro";b.innerHTML='<div class="qh">'+(st.n?"السؤال "+st.n+" من "+TR.last:st.k==="save"?"الخطوة الأخيرة":"البداية")+'</div><div class="qt">'+esc(st.q)+'</div><div class="brow">'+waitBtn("start","ابدأ الحل",il)+'</div>';b.hidden=false;center(b);return}
+ if(S.intro!==S.i){var il=waitFor("i"+S.i,S.h?readMs(st.q,2500,8000):quickMs(st.q,800,2500));cv.hidden=false;b.className="bub intro";b.innerHTML='<div class="qh">'+(st.n?"السؤال "+st.n+" من "+TR.last:st.k==="save"?"الخطوة الأخيرة":"البداية")+'</div><div class="qt">'+esc(st.q)+'</div><div class="brow">'+waitBtn("start","ابدأ الحل",il)+'</div>';b.hidden=false;center(b);return}
  if(S.pick){var it=itemOf(S.pick),opts=shuffle([it.a].concat(it.w),S.pick.length*7+S.i*13+it.a.length),pk=S.pick;
   b.innerHTML='<div>'+(it.t==="fix"?"اختر التصحيح:":"اختر الإجابة:")+'</div><div class="opts">'+opts.map(function(o){var no=S.wrong.indexOf(o)>=0;return '<button class="opt'+(no?' no':'')+'" data-a="pick" data-o="'+esc(o)+'"'+(no?' disabled':'')+'>'+esc(o)+'</button>'}).join("")+'</div>'+(S.wrong.length?'<div class="bfb">خطأ، جرّب مرة ثانية.</div>':'')+'<div class="brow"><button class="btn" data-a="unpick">إلغاء</button></div>';
   b.hidden=false;var el=document.querySelector('[data-k="'+pk+'"]');if(el){el.scrollIntoView({block:"nearest",inline:"nearest"});place(b,el);REPOS=function(){return document.querySelector('[data-k="'+pk+'"]')}}else center(b);return}
@@ -298,7 +308,9 @@ function act(a,el){lastAct=Date.now();
  if(!S||ANIM)return;var st=cur();
  if(a==="start"){if(waiting("i"+S.i))return;S.intro=S.i;refresh();var g0=$("#guide");g0.classList.remove("flash");void g0.offsetWidth;g0.classList.add("flash");return}
  if(a==="intro"){S.intro=-1;S.pick=null;S.menu=null;refresh();return}
- if(a==="next"){if(waiting("o"+S.i))return;if(S.i>=TR.steps.length-1){finish();return}S.i++;S.okStep=-1;S.pick=null;S.wrong=[];S.menu=null;refresh();return}
+ if(a==="lmin"){S.lmin=!S.lmin;refresh();return}
+ if(a==="lnext"){if(waiting("oa"+S.i))return;S.lstage=1;refresh();return}
+ if(a==="next"){if(waiting("ob"+S.i)||(S.okStep===S.i&&cur().tip&&S.lstage!==1))return;if(S.i>=TR.steps.length-1){finish();return}S.i++;S.okStep=-1;S.lstage=0;S.pick=null;S.wrong=[];S.menu=null;refresh();return}
  if(S.intro!==S.i&&S.okStep!==S.i){return}
  if(a==="openproj"){if(st.k!=="open"||S.op)return;S.op=true;S.proj=!portrait();done();return}
  if(a==="fmcode"){if(el.dataset.c!=="2020"){toast("الرمز غير صحيح. رمز المشروع مكتوب في ورقتك",true);if(!S.h)S.mis++;return}S.fs=1;refresh();return}
@@ -314,21 +326,22 @@ function act(a,el){lastAct=Date.now();
  if(a==="item"){tapItem(el.dataset.k);return}
  if(a==="unpick"){S.pick=null;S.wrong=[];refresh();return}
  if(a==="pick"){pick(el.dataset.o);return}
- if(a==="reveal"){reveal();return}}
+ if(a==="reveal"){reveal();return}
+ if(a==="sug"){var sk=el.dataset.k,tt=target();if(!S.h||!tt||tt.k!==sk)return;if(waiting("c"+sk)){toast("اقرأ الفقاعة أولاً");return}S.menu=null;typeIn(sk,itemOf(sk).a);return}}
 function saveAll(){S.menu=null;var st=cur();if(st.k==="save"&&S.intro===S.i&&!S.sv){S.sv=true;done();return}toast("تم حفظ كل الملفات");refresh()}
 function tapItem(k){var p=k.split("-"),si=+p[0];if(S.okStep===S.i||S.f[k])return;
  if(si!==S.i){toast("هذا ليس من السؤال الحالي ("+qLabel(cur())+")",true);return}
  var t=target();if(S.h&&t&&t.k&&t.k!==k){toast("ابدأ بالمربع البرتقالي",true);return}
- if(S.h){if(waiting("c"+k)){toast("اقرأ الفقاعة أولاً");return}S.menu=null;typeIn(k,itemOf(k).a);return}/* help mode: no choices, the answer is written for you */
+ if(S.h){toast("اضغط الإجابة في الفقاعة");return}/* help mode: the answer is a button in the bubble, like grade 12 */
  S.pick=k;S.wrong=[];S.menu=null;refresh()}
 function pick(o){var k=S.pick;if(!k)return;var it=itemOf(k);if(o!==it.a){if(S.wrong.indexOf(o)<0){S.wrong.push(o);if(!S.h)S.mis++}refresh();return}
  S.pick=null;S.wrong=[];typeIn(k,it.a)}
 function reveal(){var t=target(),st=cur();if(!t)return;if(!t.k){var el=tEl(t);if(el)el.classList.add("g");toast(coachText(t,st));return}S.rv++;S.pick=null;S.wrong=[];typeIn(t.k,itemOf(t.k).a)}
-function typeIn(k,txt){var n=0,inc=Math.max(1,Math.ceil(txt.length/32));ANIM={k:k,shown:""};renderBub();renderIDE();
+function typeIn(k,txt){var n=0,inc=1,gap=/fasttype/.test(location.hash)?8:Math.max(45,Math.min(110,1400/Math.max(1,txt.length)));ANIM={k:k,shown:""};renderBub();renderIDE();
  function tick(){n=Math.min(txt.length,n+inc);ANIM.shown=txt.slice(0,n);var el=document.querySelector('[data-k="'+k+'"]');
   if(el&&txt.indexOf("\n")<0)el.textContent=ANIM.shown;else renderIDE();
-  if(n<txt.length){setTimeout(tick,28);return}ANIM=null;S.f[k]=1;S.lastK=k;PAUSE=Date.now()+(FAST?0:900);var st=cur();if(st.k==="q"&&stepDone(st,S.i))done();else refresh()}
- setTimeout(tick,28)}
+  if(n<txt.length){setTimeout(tick,gap);return}ANIM=null;S.f[k]=1;S.lastK=k;PAUSE=Date.now()+(FAST?0:900);var st=cur();if(st.k==="q"&&stepDone(st,S.i))done();else refresh()}
+ setTimeout(tick,gap)}
 function done(){S.okStep=S.i;S.pick=null;S.menu=null;refresh()}
 function finish(){S.done=true;S.okStep=-1;var p=stats(S.t,S.h),rec={sec:S.sec,at:Date.now(),reveals:S.rv,mis:S.mis};p.done=1;p.last=rec;if(!p.first)p.first=rec;if(!p.best||rec.sec<p.best.sec)p.best=rec;store(statKey(S.t,S.h),p);persist();donePage(S.t,S.h)}
 function donePage(id,h){var t=TRACKS[id],p=stats(id,h),m=me()||{},last=p.last||{sec:0,at:Date.now(),reveals:0,mis:0},first=p.first||last,mode=h?"مع المساعدة":"بدون مساعدة";S=null;TR=null;
