@@ -38,7 +38,7 @@ video{width:100%;max-height:72dvh;background:#000;display:block}
 <script>
 (function(){
 var Q=["افتح النموذج Form1 من نافذة Solution Explorer","أضف عنوان Label","أضف صندوق نص TextBox","أضف زر Button وغيّر نصه إلى «استعارة»","أضف صندوق صورة PictureBox","غيّر Text للعنوان Label1","غيّر لون النص ForeColor إلى Purple","غيّر حجم الخط Font إلى 18","أظهر التاريخ في Label3 عند التشغيل","أظهر الوقت في Label4 عند التشغيل","تعليمة إنهاء البرنامج في زر (إنهاء)","أضف نموذجاً جديداً (Form2)","أضف وحدة نمطية (Module)","أعلن عن المتغير bookName","خزّن TextBox1 في المتغير bookName","أظهر النموذج Form2","أخفِ النموذج الحالي","أعلن عن الثابت shelves","أكمل تعليمة If ... Then","احفظ التغييرات","الحل بدون مساعدة: الاختيارات والتنبيه عند الخطأ"];
-var T=[4.45,33.45,60.55,85.8,118.95,143.6,176.5,203.35,235.8,270.55,315.25,360.1,390.05,419.45,475.6,522.6,564.75,606.4,661.35,711.7,731.8];
+var T=[4.5,35.75,65.0,92.45,127.9,154.6,189.7,218.7,253.4,290.35,337.2,384.2,416.2,447.8,506.05,555.3,599.7,643.6,700.6,752.9,775.2];
 var v=document.getElementById("v"),list=document.getElementById("list");
 list.innerHTML=Q.map(function(q,i){return '<button data-i="'+i+'"><b>'+(i<20?'س'+(i+1):'تدريب')+'</b><span>'+q+'</span></button>'}).join("");
 list.onclick=function(e){var b=e.target.closest("button");if(!b)return;v.currentTime=T[+b.dataset.i]+0.05;v.play();window.scrollTo({top:0,behavior:"smooth"})};
